@@ -5,7 +5,7 @@ function swap(a, i, j) {
 }
 
 function quicksort (a) {
-    if(a.length < 1) return a
+    if(!a.length) return []
     let pivot = a[a.length - 1]
     let i = 0, j = 0; 
     while(j < a.length - 1) {
@@ -15,8 +15,8 @@ function quicksort (a) {
     swap(a, i, a.length - 1) 
     pivot = a[i]
     const left = quicksort(a.slice(0, i))
-    const right = quicksort(a.slice(i + 1 , a.length))
+    const right = quicksort(a.slice(i + 1, a.length))
     return left.concat([pivot].concat(right))
 }   
 
-quicksort([8, 2, 4, 7, 1, 3, 9, 6, 5])
+console.log(quicksort([8, 2, 7, 4, 7, 1, 3, 9, 6, 5]))
